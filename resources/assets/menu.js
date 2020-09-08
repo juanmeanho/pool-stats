@@ -3,7 +3,7 @@ const menu_items = [{
         link: '/',
         icon: ' fa fa-home'
     },{
-        name: 'Configuración',
+        name: 'Settings',
         link: '/configuracion',
         icon: ' fa fa-cog'
     },//{

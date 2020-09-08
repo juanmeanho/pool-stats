@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 
 
 
+
 class ApiController extends Controller
 {
     public function getData($type, $currency, $page){ 
@@ -117,7 +118,71 @@ class ApiController extends Controller
             return ['block' => 'Sin coincidencia'];
         }
 
-    }
+	}
+	
+	public function getMarkets(){ 
+
+		$coin_type           = 'BTC';#币种
+		$sign_id             = 'juanmeanho';# 子账号名
+		$sign_key            = 'af1ca86c175d459fb6c44ac26a52d603';#密钥
+		$sign_SECRET         = '28aa0919dde346a786018c959fa45839';#密码
+		
+		$nonce = time();#毫秒时间戳
+		$hmac_message = $sign_id.$sign_key.$nonce;
+		$hmac = strtoupper(hash_hmac('sha256', $hmac_message, $sign_SECRET, false));
+	
+		// create curl request
+		// $post_fields = array(
+		// 	'key' => $sign_key,
+		// 	'nonce' => $nonce,
+		// 	'signature' => $hmac,
+		// 	'coin' => $coin_type
+		// );
+			
+	
+			// $post_data = '';
+			// foreach($post_fields as $key => $value) {
+			// 	$post_data.= $key.'='.$value.'&';
+			// }
+			
+			// rtrim($post_data, '&');
+
+		$client = new Client(["base_uri" => "https://antpool.com", 'verify' => false, 
+
+		'headers' => [
+			'Content-Type' => 'application/json',
+		],
+		'curl' => [
+			CURLOPT_SSLVERSION => CURL_SSLVERSION_TLSv1_2,
+			CURLOPT_SSL_VERIFYPEER => false
+		]]);
+
+		// $client = new Client([
+		// 	'form_params' => [
+		// 		'key' => $sign_key,
+		//  		'nonce' => $nonce,
+		//  		'signature' => $hmac,
+		// 		'coin' => $coin_type
+		// 	]
+		// 	'verify' => false, 'curl' => [CURLOPT_SSLVERSION => CURL_SSLVERSION_TLSv1_2]
+		// ]);
+		
+		$options = [
+			'form_params' => [
+				'key' => $sign_key,
+		 		'nonce' => $nonce,
+		 		'signature' => $hmac,
+				'coin' => $coin_type
+			]
+		]; 
+
+		//$response = json_decode($client->request('GET', "https://antpool.com/api/poolStats.htm")->getBody());
+
+		$response = $client->post("api/poolStats.htm", $options);
+
+		return  $response->getBody();
+	}
+
 
  }
 

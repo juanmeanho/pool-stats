@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-12 col-xl-12">
                 <!--======================== Formulario APi ===========================-->
-                <b-card header="Configurar datos de acceso al Api" header-tag="h4" class="bg-success-card">
+                <b-card header="Api Settings" header-tag="h4" class="bg-success-card">
                     <div class="col-4">
                         <div class="row mt-3 mb-3">
                             <div class="col-2 mt-4 mb-3 text-center">

@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/getdata/{type}/{currency}/{page}', 'ApiController@getData')->name('getData');
+Route::get('/getmarkets', 'ApiController@getMarkets')->name('getMarkets');
 
 
 Route::prefix('auth')->group(function(){
@@ -29,7 +29,6 @@ Route::prefix('auth')->group(function(){
 	Route::get('checkpasswords', 'AppController@checkPasswords');
 	Route::get('db-blocks', 'AppController@getDbBlocks');
 
-
 });
 
 Route::prefix('api')->group(function(){
@@ -37,8 +36,6 @@ Route::prefix('api')->group(function(){
 	Route::get('/getdata/{type}/{currency}/{page}', 'ApiController@getData')->name('getData');
 	Route::get('/last-block', 'ApiController@getLastBlockPool')->name('getLastBlockPool');
 
-
-	
 });
 
 

@@ -2,52 +2,52 @@
     <div>
         <div class="row mb-4">
             <div class="col-lg-3 col-md-6 mb-3">
-                <div class="text-center p-3 widget_social_icons box_shadow">
+                <div class="text-center p-3 widget_social_icons box_shadow card" style="margin-bottom:0px">
                     <pulse-loader v-if="spinner" :loading="true" :color="color" :size="size"></pulse-loader>
                         <div v-else>
-                            <p>Hoy</p>
+                            <p>Today</p>
                             <div class="text-ash">
                                 <pulse-loader v-if="!productionToday" :loading="true" :color="color" :size="size"></pulse-loader>
-                                <h4 v-else class="mb-0 mt-2 text_size"><i class="fa fa-btc" style="color: blue; font-size: inherit;"></i> {{  toFix(productionToday, 8) }}</h4>
+                                <h4 v-else class="mb-0 mt-2 text_size" style="color: #42494d;"><i class="fa fa-btc" style="color: blue; font-size: inherit;" ></i> {{  toFix(productionToday, 8) }}</h4>
                                 <h5 class="mb-0 mt-2 text_size" style="color: #42494d;"><i class="fa fa-usd" style="color: green; font-size: inherit;"></i> {{ toFix((productionToday * btcPrice), 2) }}</h5>
                             </div>
                         </div>
                 </div>
             </div>
             <div class="col-lg-3  col-sm-6 mb-3">
-                <div class="text-center p-3 widget_social_icons box_shadow ">
+                <div class="text-center p-3 widget_social_icons box_shadow card" style="margin-bottom:0px">
                     <pulse-loader v-if="spinner" :loading="true" :color="color" :size="size"></pulse-loader>
                         <div v-else>
-                            <p>Ayer</p>
+                            <p>Yesterday</p>
                             <div class="text-ash">
                                 <pulse-loader v-if="!account" :loading="true" :color="color" :size="size"></pulse-loader>
-                                <h4 v-else class="mb-0 mt-2 text_size"><i class="fa fa-btc" style="color: blue; font-size: inherit;"></i> {{ account.earn24Hours }}</h4>
+                                <h4 v-else class="mb-0 mt-2 text_size" style="color: #42494d;"><i class="fa fa-btc" style="color: blue; font-size: inherit;"></i> {{ account.earn24Hours }}</h4>
                                 <h5 class="mb-0 mt-2 text_size" style="color: #42494d;"><i class="fa fa-usd" style="color: green; font-size: inherit;"></i> {{ toFix((account.earn24Hours * btcPrice), 2) }}</h5>
                             </div>
                         </div>
                 </div>
             </div>
             <div class="col-lg-3  col-sm-6 mb-3">
-                <div class="text-center p-3 widget_social_icons box_shadow">
+                <div class="text-center p-3 widget_social_icons box_shadow card" style="margin-bottom:0px">
                     <pulse-loader v-if="spinner" :loading="true" :color="color" :size="size"></pulse-loader>
                         <div v-else>
                             <p>Balance</p>
                             <div class="text-ash">
                                 <pulse-loader v-if="!account" :loading="true" :color="color" :size="size"></pulse-loader>
-                                <h4 v-else class="mb-0 mt-2 text_size"><i class="fa fa-btc" style="color: blue; font-size: inherit;"></i> {{ account.balance }}</h4>
+                                <h4 v-else class="mb-0 mt-2 text_size" style="color: #42494d;"><i class="fa fa-btc" style="color: blue; font-size: inherit;"></i> {{ account.balance }}</h4>
                                 <h5 class="mb-0 mt-2 text_size" style="color: #42494d;"><i class="fa fa-usd" style="color: green; font-size: inherit;"></i> {{ toFix((account.balance * btcPrice), 2) }}</h5>
                             </div>
                         </div>
                 </div>
             </div>
             <div class="col-lg-3  col-md-6 mb-3">
-                <div class="text-center p-3 widget_social_icons box_shadow">
+                <div class="text-center p-3 widget_social_icons box_shadow card" style="margin-bottom:0px">
                     <pulse-loader v-if="spinner" :loading="true" :color="color" :size="size"></pulse-loader>
                         <div v-else>
-                            <p>Ganancias Totales</p>
+                            <p>Total Earnings</p>
                             <div class="text-ash">
                                 <pulse-loader v-if="!account" :loading="true" :color="color" :size="size"></pulse-loader>
-                                <h4 v-else class="mb-0 mt-2 text_size"><i class="fa fa-btc" style="color: blue; font-size: inherit;"></i> {{ account.earnTotal }}</h4>
+                                <h4 v-else class="mb-0 mt-2 text_size" style="color: #42494d;"><i class="fa fa-btc" style="color: blue; font-size: inherit;"></i> {{ account.earnTotal }}</h4>
                                 <h5 class="mb-0 mt-2 text_size" style="color: #42494d;"><i class="fa fa-usd" style="color: green; font-size: inherit;"></i> {{ toFix((earnTotalUsd), 2) }}</h5>
                             </div>
                         </div>
@@ -55,7 +55,6 @@
             </div>
         </div>
         <div class="row">
-            
             <div class="col-xl-6 col-lg-12">
                 <div class="row">
                     <div class="col-xl-12 col-lg-12">
@@ -64,7 +63,7 @@
                                 <div class="row text-center">
                                     <div class="col-12">
                                         <h4 class="text_color text_size_big">{{ toFix(hashLast10m, 2) }} TH/s</h4>
-                                        <p class="pb-3 border_bottom">Hash 10 Minutos</p>
+                                        <p class="pb-3 border_bottom">Hash last 10 Minutes</p>
                                     </div>
                                 </div>
                             </div>
@@ -74,12 +73,12 @@
                                     <p class="mt-2">Hash Pool</p>
                                 </div>
                                 <div class="col-4 pb-0 post-fllow">
-                                    <span><strong>  {{ workers }}</strong></span>
-                                    <p class="mt-2">Active Workers</p>
+                                    <span><strong>  {{ currentRound }}</strong></span>
+                                    <p class="mt-2">Current Round</p>
                                 </div>
                                 <div class="col-4 pb-0 post-fllow">
-                                    <span><strong>{{ blocksPool }} </strong></span>
-                                    <p class="mt-2">Blocks Pool</p>
+                                    <span><strong>{{ networkDiff }} </strong></span>
+                                    <p class="mt-2">Network Difficulty</p>
                                 </div>
                             </div>
                         </b-card>
@@ -95,28 +94,28 @@
             </div>
             <div class="col-xl-6 col-lg-12">
                 <div class="col-md-12 tot_boxline3">
-                    <h4 class="name_visitors">Ultimos Bloques</h4>
+                    <h4 style="margin-bottom: 15px;" class="name_visitors">Last Blocks</h4>
                 </div>
                 <b-card class="line_remove">
-                    <div class="table-responsive">
-                        <div v-if="!lastBlocks" style="height:200px;"><br><br><br><br><br><br>
-                            <rotate-loader :loading="loading" :color="color" :size="size"></rotate-loader>
-                        </div>
-                        <table width="100%" v-else class="table table-hover hover_table">
-                            <thead>
-                                <tr>
-                                    <th width="50%" class="text-gray">Height</th>
-                                    <th width="50%" class="text-gray">Visto</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr v-for="(item, index) in lastBlocks" :key="index">
-                                    <td><span :class="setNewBlock(item.time)">{{ item.height }}</span></td>
-                                    <td>{{ convertDate(item.time) }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <table width="100%"  class="table table-hover hover_table">
+                        <thead>
+                            <tr>
+                                <th width="50%" class="text-gray">Height</th>
+                                <th width="50%" class="text-gray">Seen</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-if="!lastBlocks" style="align:center;height:400px;">
+                                <td colspan="2" style="align:center;height:400px;">
+                                    <rotate-loader style="text-align:center" :loading="loading" :color="color" :size="size"></rotate-loader>
+                                </td>
+                            </tr>
+                            <tr v-else v-for="(item, index) in lastBlocks" :key="index">
+                                <td><span :class="setNewBlock(item.time)">{{ item.height }}</span></td>
+                                <td>{{ convertDate(item.time) }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </b-card>
             </div>
         </div>
@@ -149,79 +148,43 @@
         data() {
             return {
                 flagRefresh: 0, account: 0, earningPages: 0, totalEarnings: 0, productionToday: 0, spinner: false,
-                loading: true, color: "#2c3e50", size: "10px", timeRefresh: '', workerData: null, hashLast10m: 0, blocksPool: 0, earnTotalUsd: 0, instances: [], loadingChart: true, 
+                loading: true, color: "#2c3e50", size: "10px", timeRefresh: '', workerData: null, hashLast10m: 0, networkDiff: 0, earnTotalUsd: 0, instances: [], loadingChart: true, currentRound: 0,
                 monitor: 'Off', usdBtcData: 0, btcPrice: 0, poolStats: null, lastBlocks: null, poolHash: 0, workers: 0,
-                // ======area chart start================
                 area_chart: {
-                    title: {
-                        text: 'Última semana',
-                        subtext: 'USD/BTC'
-                    },
-                    tooltip: {
-                        trigger: 'axis'
-                    },
-                    legend: {
-                        show: true,
-                        data: ['Últimos 7 días', 'Últimos 7 días']
-                    },
-
-                    color: {
-                        pattern: ['red', 'red']
-                    },
+                    title: { text: 'Last 7 Days', subtext: 'USD/BTC' },
+                    tooltip: { trigger: 'axis' },
+                    legend: { show: true, data: ['Últimos 7 días', 'Últimos 7 días'] },
+                    color: { pattern: ['red', 'red'] },
                     calculable: true,
-                    xAxis: [{
-                        type: 'category',
-                        boundaryGap: false,
-                        data: []
-                    }],
-                    yAxis: [{
-                        type: 'value'
-                    }],
+                    xAxis: [{ type: 'category', boundaryGap: false, data: [] }],
+                    yAxis: [{ type: 'value' }],
                     series: [{
-                        name: 'USD',
-                        type: 'line',
-                        smooth: true,
+                        name: 'USD',type: 'line',smooth: true,
                         itemStyle: {
                             normal: {
-                                areaStyle: {
-                                    type: 'default',
-                                    color: '#16af81'
-                                },
-                                lineStyle: {
-                                    color: '#009966'
-                                }
+                                areaStyle: { type: 'default', color: '#16af81' },
+                                lineStyle: { color: '#009966' }
                             }
                         },
                         data: []
                     }, {
-                        name: 'BTC',
-                        type: 'line',
-                        smooth: true,
+                        name: 'BTC', type: 'line', smooth: true,
                         itemStyle: {
                             normal: {
-                                areaStyle: {
-                                    type: 'default',
-                                    color: '#16af81'
-                                },
-                                lineStyle: {
-                                    color: '#009966'
-                                }
+                                areaStyle: { type: 'default', color: '#16af81' },
+                                lineStyle: { color: '#009966' }
                             }
                         },
                         data: []
                     }]
                 },
-                // ======area chart end================
-
             }
         },
         mounted: function () {
-            //clearInterval(this.interval)
             this.getValueBtc()
             this.getAccount()
             this.refreshData();
-            this.getPoolStats();
-            //this.update_chart();
+            
 
             unsub = this.$store.subscribe((mutation, state) => {
                 if (mutation.type == "left_menu") {
@@ -252,7 +215,8 @@
                 this.saveBlocks();
                 //this.getLastBlocks();
                 this.getLastBlocksDb();
-                this.getWorkerData()            
+                this.getWorkerData();
+                this.getPoolStats();        
 
                 axios
                 .get('/api/getdata/account/BTC/0')
@@ -344,10 +308,15 @@
                 .get('/api/getdata/poolStats/BTC/0')
                 .then( response => response.data) 
                 .then(data => {
+
+                    
                     this.poolStats = data.getData
                     this.poolHash = this.poolStats.poolHashrate * parseFloat(0.0000010) * parseFloat(0.0000010);
-                    this.workers  = this.poolStats.activeWorkerNumber
-                    this.blocksPool = this.poolStats.totalBlockNumber
+                    this.networkDiff = this.poolStats.networkDiff                    
+                    let dateLastBlock = moment(this.lastBlocks[0].time).subtract(3, 'hours');
+                    let now = moment(new Date()); //todays date
+                    var current = moment.duration(now.diff(dateLastBlock))
+                    this.currentRound = current.hours() +" h "+ current.minutes() +" m";
 
                 }).catch(error => {
                     this.$store.commit("setCalling", false)
@@ -419,7 +388,7 @@
                 var now = moment(new Date());
                 let adjustDate = moment(date).subtract(3, 'hours');
             
-                if(now.diff(adjustDate, 'minutes') < 10){
+                if(now.diff(adjustDate, 'minutes') < 30){
                     return 'success_background'
                 }
             },

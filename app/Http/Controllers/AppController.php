@@ -90,7 +90,7 @@ class AppController extends Controller
 	
 	public function getDbBlocks(){
 
-        return ['blocks' => Block::orderBy('height', 'DESC')->limit(10)->get()];
+        return ['blocks' => Block::orderBy('height', 'DESC')->limit(12)->get()];
     
 	}
 	
