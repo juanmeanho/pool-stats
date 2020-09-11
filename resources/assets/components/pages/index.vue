@@ -63,7 +63,7 @@
                                 <div class="row text-center">
                                     <div class="col-12">
                                         <h4 class="text_color text_size_big">{{ toFix(hashLast10m, 2) }} TH/s</h4>
-                                        <p class="pb-3 border_bottom">Hash last 10 Minutes</p>
+                                        <p class="pb-3 border_bottom">Hash rate last 10 minutes</p>
                                     </div>
                                 </div>
                             </div>
@@ -77,7 +77,7 @@
                                     <p class="mt-2">Current Round</p>
                                 </div>
                                 <div class="col-4 pb-0 post-fllow">
-                                    <span><strong>{{ networkDiff }} </strong></span>
+                                    <span><strong>{{ toFix((networkDiff / 1000000000000 ), 2) }} T </strong></span>
                                     <p class="mt-2">Network Difficulty</p>
                                 </div>
                             </div>
@@ -193,9 +193,9 @@
                             item.resize();
                         });
                     });
-                    setTimeout(() => {
-                        this.$refs.swiper.swiper.update();
-                    });
+                    // setTimeout(() => {
+                    //     this.$refs.swiper.swiper.update();
+                    // });
                 }
             });
 
@@ -212,8 +212,7 @@
             getAccount() {
 
                 this.getNumEarningPages()
-                this.saveBlocks();
-                //this.getLastBlocks();
+                this.saveBlocks(); //quitar y poner en cron
                 this.getLastBlocksDb();
                 this.getWorkerData();
                 this.getPoolStats();        
@@ -222,7 +221,7 @@
                 .get('/api/getdata/account/BTC/0')
                 .then( response => response.data) 
                 .then(data => {
-                    this.account = data.getData
+                    this.account = data.data
                     this.earnTotalUsd = this.account.earnTotal * this.btcPrice
                     this.$store.commit("setCalling", true)
                 }).catch(error => {
@@ -237,7 +236,7 @@
                 .get('/api/getdata/paymentHistoryV2/BTC/1')
                 .then( response => response.data) 
                 .then(data => {
-                    let earningPages = data.getData.totalPage
+                    let earningPages = data.data.totalPage
                     this.getEarningHistory(earningPages)
 
                 }).catch(error => {
@@ -258,7 +257,7 @@
                     .then( response => response.data) 
                     .then(data => {
 
-                        let allEarnigs = data.getData.rows
+                        let allEarnigs = data.data.rows
                         let pageEarnings = 0
                         let dateX = []
                         let dateY = []
@@ -310,7 +309,7 @@
                 .then(data => {
 
                     
-                    this.poolStats = data.getData
+                    this.poolStats = data.data
                     this.poolHash = this.poolStats.poolHashrate * parseFloat(0.0000010) * parseFloat(0.0000010);
                     this.networkDiff = this.poolStats.networkDiff                    
                     let dateLastBlock = moment(this.lastBlocks[0].time).subtract(3, 'hours');
@@ -322,19 +321,6 @@
                     this.$store.commit("setCalling", false)
                     console.log('Error de PoolStats')
                 }); 
-            },
-            getLastBlocks() { //No confiable
-
-                axios
-                .get('https://api.smartbit.com.au/v1/blockchain/pool/AntPool')
-                .then( response => response.data) 
-                .then(data => {
-                    this.lastBlocks = data.pool.blocks
-                }).catch(error => {
-                    this.$store.commit("setCalling", false)
-                    console.log('Error de getLastBlocks')
-                }); 
-
             },
             getLastBlocksDb() {
 
@@ -355,7 +341,7 @@
                 .get('/api/getdata/workers/BTC/1')
                 .then( response => response.data) 
                 .then(data => {
-                    this.workerData = data.getData.rows
+                    this.workerData = data.data.rows
 
                     var hashWorkers = this.workerData.reduce((accumulator, item) => {
                          return parseFloat(accumulator) + parseFloat(item.last10m);

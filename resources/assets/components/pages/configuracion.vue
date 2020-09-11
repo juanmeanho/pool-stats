@@ -4,7 +4,7 @@
             <div class="col-lg-12 col-xl-12">
                 <!--======================== Formulario APi ===========================-->
                 <b-card header="Api Settings" header-tag="h4" class="bg-success-card">
-                    <div class="col-4">
+                    <div class="col-xs-12 col-lg-4 col-xl-4">
                         <div class="row mt-3 mb-3">
                             <div class="col-2 mt-4 mb-3 text-center">
                                 <i class="fa fa-key fb_text mt-2" style="color:green;"></i>
@@ -32,6 +32,8 @@
                                         <p class="below_text" style="font-size:10px;">Estatus</p>
                                     </div>
                                 </div>
+                                <p class="below_text">admin@jmdigital.dev</p>
+
                             </div>
                         </div>
                     </div>
@@ -71,6 +73,7 @@
         },
         mounted: function () {
 
+
             unsub = this.$store.subscribe((mutation, state) => {
                 if (mutation.type == "left_menu") {
                     this.instances.forEach(function (item, index) {
@@ -78,6 +81,9 @@
                             item.resize();
                         });
                     });
+                    // setTimeout(() => {
+                    //     this.$refs.swiper.swiper.update();
+                    // });
                 }
             });
 

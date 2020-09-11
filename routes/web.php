@@ -15,8 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/getmarkets', 'ApiController@getMarkets')->name('getMarkets');
-
 
 Route::prefix('auth')->group(function(){
 

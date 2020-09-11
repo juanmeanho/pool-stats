@@ -5,12 +5,14 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-2 mt-3">
+                        <button class="ml-4 btn btn-primary" style="background-color:#16af81;border-color:#16af81">
+                            Pool: Antpool
+                        </button>
                         <button class="ml-4 btn btn-primary">
                             1 <i class="fa fa-btc text-white"></i> = ${{ toFix(this.$store.state.valueBtc, 2) }}
                         </button>                    
                     </div>
                 </div>
-
             </div>
         </section>
         <!-- Main content -->
