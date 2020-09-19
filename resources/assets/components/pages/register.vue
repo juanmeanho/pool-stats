@@ -4,7 +4,7 @@
             <div class="col-lg-4 offset-lg-4 col-sm-6 offset-sm-3 col-xs-10 offset-xs-1 login-content mt-5">
                 <div class="row">
                     <div class="col-sm-12 mt-3">
-                        <h2 class="text-center"><img src="~img/logo_black.png" alt="Logo"></h2>
+                        <h2 class="text-center"><img src="/images/logo_pool.png" alt="Logo"></h2>
                     </div>
                 </div>
                 <vue-form :state="formstate" @submit.prevent="onSubmit" >
@@ -64,7 +64,7 @@
                                 </validate>
                             </div>
                         </div>
-                        <div class="col-sm-12">
+                        <!-- <div class="col-sm-12">
                             <validate tag="label">
                                 <label class="form-group custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input checkbox_label" name="terms" id="terms" v-model="model.terms" checkbox>
@@ -77,7 +77,7 @@
                                     <div slot="checkbox">Terms must be accepted</div>
                                 </field-messages>
                             </validate>
-                        </div>
+                        </div> -->
                         <div class="col-sm-12">
                             <div class="form-group float-right">
                                 <input type="submit" value="Sign Up" class="btn btn-success" />

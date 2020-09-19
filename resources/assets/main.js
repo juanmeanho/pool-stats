@@ -3,19 +3,16 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store/store.js'
-import VueAnalytics from 'vue-analytics'
+import * as VueAnalytics from 'vue-analytics'
 
 // window.axios.defaults.headers.common = {
 //     'X-Requested-With': 'XMLHttpRequest'
 // }
 
 // Google Analytics
-const google_analytics_key = store.state.google_analytics_key
-
-if (google_analytics_key && google_analytics_key.length) {
 
     Vue.use(VueAnalytics, {
-        id:google_analytics_key,
+        id:'UA-178006492-1',
         router,
         checkDuplicatedScript: true,
         autoTracking: {
@@ -27,7 +24,6 @@ if (google_analytics_key && google_analytics_key.length) {
         }
     })
 
-}
 
 // Remove the productionTip in dev tool console
 Vue.config.productionTip = false

@@ -5,14 +5,14 @@
                 <div class="row">
                     <div class="col-sm-12 mt-3">
                         <h2 class="text-center">
-                            <img src="/images/logo_black.png" alt="Logo">
+                            <img src="/images/logo_pool.png" alt="Logo">
                         </h2>
                     </div>
                 </div>
                  <div class="row mt-2">
                      <div class="col-sm-12">
                          <div class="text-center">
-                         <img src="/images/login_user-01.png" class="rounded-circle">
+                            admin@jmdigital.com
                          </div>
                      </div>
                  </div>
@@ -51,7 +51,7 @@
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6">
-                            <validate tag="label">
+                            <!-- <validate tag="label">
                                 <label class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input checkbox_label" name="remember" id="remember" v-model="model.remember" check-box>
                                     <span class="custom-control-indicator"></span>
@@ -60,7 +60,7 @@
                                 <field-messages name="remember" show="$invalid && $submitted" class="text-danger">
                                     <div slot="check-box">Terms must be accepted</div>
                                 </field-messages>
-                            </validate>
+                            </validate> -->
                         </div>
                         <div class="col-lg-6 col-md-6 text-right">
                             <div class="form-group">
@@ -70,9 +70,9 @@
                         <br>
                         <div class="col-sm-12 text-center">
                             <div class="form-group">
-                                <p>
+                                <!-- <p>
                                     <router-link tag="a" to="/forgotpassword" class="">Forgot Your Password ?</router-link>
-                                </p>
+                                </p> -->
                                 <router-link tag="a" to="/register" class="btn btn-primary btn-block ">New User? Sign Up Now
                                 </router-link>
                             </div>

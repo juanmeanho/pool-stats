@@ -2,7 +2,7 @@
     <header class="header">
         <nav>
             <router-link to="/" class="logo">
-                <img src="~img/logo_black.png" alt="logo" />
+                <img src="/images/logo_pool.png" alt="logo" />
             </router-link>
             <!-- Sidebar toggle button-->
             <div class="float-left">

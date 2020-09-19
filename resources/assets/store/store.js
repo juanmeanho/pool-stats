@@ -28,12 +28,12 @@ const store = new Vuex.Store({
         calling: false,
         left_open: true,
         preloader: true,
-        site_name: "Vuejs-Admin",
+        site_name: "LivePool",
         page_title: null,
         ajuste: 0,
         user: {
             name: null,
-            picture: "http://localhost/vuejs-laravel/public/images/user.jpg",
+            picture: "/images/user.jpg",
             job: "Project Manager"
         },
         cal_events: [{

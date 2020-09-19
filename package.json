@@ -1,5 +1,5 @@
 {
-    "name": "vuejs-admin",
+    "name": "MyPool",
     "version": "1.0.0",
     "description": "Vuejs based admin template",
     "main": "main.js",
@@ -42,7 +42,7 @@
         "screenfull": "^3.3.2",
         "v-chartist": "^0.1.5",
         "vue": "^2.5.13",
-        "vue-analytics": "^5.7.1",
+        "vue-analytics": "^5.22.1",
         "vue-awesome-swiper": "^3.0.6",
         "vue-clip": "^1.0.0",
         "vue-codemirror": "^4.0.2",

@@ -20,16 +20,13 @@
                                 <p class="below_text">API Secret</p>
 
                                 <div class="row mt-3 mb-3">
-                                    <div class="col-6 mt-4 mb-3 text-center">
-                                        <button @click="setPasswords()" class="text-white btn btn-primary" >
+                                    <div class="col-6 mt-4 mb-3">
+                                        <button @click="setPasswords()" class="text-white btn btn-primary pull" >
                                             Guardar
                                         </button>                                        
                                     </div>
                                     <div class="col-6 mt-4 mb-3 text-center">
-                                        <button @click="clearPasswords()" :class="['text-white', (estatusApi == 'ON') ? 'btn btn-success' : 'btn btn-danger' ]">
-                                            {{ estatusApi }}
-                                        </button>  
-                                        <p class="below_text" style="font-size:10px;">Estatus</p>
+                                        
                                     </div>
                                 </div>
                                 <p class="below_text">admin@jmdigital.dev</p>

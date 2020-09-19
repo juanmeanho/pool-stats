@@ -193,9 +193,6 @@
                             item.resize();
                         });
                     });
-                    // setTimeout(() => {
-                    //     this.$refs.swiper.swiper.update();
-                    // });
                 }
             });
 
@@ -212,7 +209,7 @@
             getAccount() {
 
                 this.getNumEarningPages()
-                this.saveBlocks(); //quitar y poner en cron
+                //this.saveBlocks(); 
                 this.getLastBlocksDb();
                 this.getWorkerData();
                 this.getPoolStats();        
@@ -289,7 +286,7 @@
                         if(count == earningNumPages){
                             this.productionToday = this.account.balance - earnings;
                             this.loadingChart = false
-                            console.log("earnings = ", this.toFix(earnings, 8))
+                            console.log("Earnings = ", this.toFix(earnings, 8))
                         }
 
 

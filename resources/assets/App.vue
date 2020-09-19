@@ -37,7 +37,7 @@ export default {
     	return{
             user: '', ajuste: 0, timeRefresh: '',
     		req: axios.create({
-    			baseUrl: 'http://localhost:8000'
+    			baseUrl: 'https://mypool.jmdigital.dev/'
     		})
     	}
     },
